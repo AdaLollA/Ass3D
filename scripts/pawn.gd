@@ -4,18 +4,14 @@ extends CharacterBody3D
 const COLOR_FRIENDY = Color('bfeaff')
 const COLOR_ENEMY = Color('ff9999')
 
-# 0  is player faction
-# >0 is enemies
-# <0 is allies
+# 0  player faction
+# >0 enemies
+# <0 allies
 @export var faction: int:
 	set(v):
-		# update color to represent faction
 		faction = v
-		if $Body:
-			if v == 0:
-				$Body.mesh.surface_get_material(0).albedo_color = COLOR_FRIENDY
-			elif v > 0:
-				$Body.mesh.surface_get_material(0).albedo_color = COLOR_ENEMY
+		# update color to represent faction
+		update_color()
 
 const SPEED = 5.0
 const JUMP_FORCE = 4.5
@@ -61,3 +57,10 @@ func handle_selection():
 		$Body.mesh.surface_get_material(0).emission_enabled = true
 	else:
 		$Body.mesh.surface_get_material(0).emission_enabled = false
+
+func update_color():
+	if $Body:
+		if faction == 0:
+			$Body.mesh.surface_get_material(0).albedo_color = COLOR_FRIENDY
+		elif faction > 0:
+			$Body.mesh.surface_get_material(0).albedo_color = COLOR_ENEMY
