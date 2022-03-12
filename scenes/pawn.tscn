@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://26mp6t1su6u"]
+
+[ext_resource type="Script" path="res://scripts/pawn.gd" id="1_pdg6t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wsqsw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_balob"]
+albedo_color = Color(0.74902, 0.917647, 1, 1)
+emission = Color(0, 0.615686, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v6d1o"]
+material = SubResource( "StandardMaterial3D_balob" )
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucysh"]
+albedo_color = Color(0.658824, 0.94902, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0jrqn"]
+material = SubResource( "StandardMaterial3D_ucysh" )
+
+[node name="Pawn" type="CharacterBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 0, 1.60568, 0)
+script = ExtResource( "1_pdg6t" )
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource( "CapsuleShape3D_wsqsw" )
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource( "CapsuleMesh_v6d1o" )
+
+[node name="Face" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.239, 0, 0, 0, 0.19, 0, 0, 0, 0.533, 0.752425, 0.857915, -0.074904)
+mesh = SubResource( "BoxMesh_0jrqn" )
+
+[connection signal="input_event" from="." to="." method="_on_pawn_input_event"]
