@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="Ass3D"
+run/main_scene="res://scenes/game.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
+
+[display]
+
+window/size/viewport_width=1900
+window/size/viewport_height=1000
 
 [rendering]
 
