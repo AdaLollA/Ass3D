@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://8jxa65pb3ut1"]
+[gd_scene load_steps=7 format=3 uid="uid://8jxa65pb3ut1"]
+
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="1_usvjx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x0vrs"]
 
@@ -50,11 +52,12 @@ mesh = SubResource( "BoxMesh_x0vrs" )
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Ground"]
 shape = SubResource( "BoxShape3D_aotj3" )
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.807496, 0.589873, 0, -0.589873, 0.807496, 0, 5.25856, 6.8721)
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.435812, 0.900038, 0, -0.900038, 0.435812, 0, 9.62194, 6.44788)
 current = true
+script = ExtResource( "1_usvjx" )
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.867025, 0.309648, 0.390366, -0.410544, -1.22352e-08, 0.911841, 0.282349, -0.950851, 0.127124, 0, 10.3611, 0)
 
 [node name="Entities" type="Node3D" parent="."]
