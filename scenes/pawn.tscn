@@ -61,4 +61,12 @@ mesh = SubResource( "BoxMesh_0kpc1" )
 [node name="MuzzleExit" type="Node3D" parent="Weapon"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0404849, 0, 0.772731)
 
+[node name="Flash" type="OmniLight3D" parent="Weapon"]
+transform = Transform3D(2, 0, 0, 0, 1.66667, 0, 0, 0, 2, 0.14548, 0, 0.763371)
+
+[node name="FlashDuration" type="Timer" parent="Weapon/Flash"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="input_event" from="." to="." method="_on_pawn_input_event"]
+[connection signal="timeout" from="Weapon/Flash/FlashDuration" to="Weapon" method="_on_flash_duration_timeout"]

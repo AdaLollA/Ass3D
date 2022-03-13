@@ -20,6 +20,7 @@ var selected = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
+	update_faction()
 	($Weapon as Weapon).fire()
 
 func _physics_process(delta):

@@ -15,11 +15,18 @@ func _process(delta):
 	pass
 
 func fire():
+	# prepare
 	var projectile = PROJECTILE.instantiate()
 	projectile.position = $MuzzleExit.global_transform.origin
 	projectile.apply_central_impulse(Vector3(muzzle_velocity, 0, 0))
 	
+	# add node
 	var projectile_container = get_tree().root.get_child(0).get_node('Projectiles')
 	projectile_container.add_child(projectile)
 	
-	print(projectile_container)
+	# flash
+	$Flash.visible = true
+	$Flash/FlashDuration.start()
+
+func _on_flash_duration_timeout():
+	$Flash.visible = false
