@@ -21,7 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	update_faction()
-	($Weapon as Weapon).fire()
+	$Weapon.fire()
 
 func _physics_process(delta):
 	if not Engine.is_editor_hint() and faction == 0:

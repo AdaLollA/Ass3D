@@ -1,18 +1,17 @@
 extends Node3D
 
-class_name Weapon
-
 const PROJECTILE = preload("res://scenes/projectile.tscn")
 
 @export var muzzle_velocity := 10
+@export var burst_size := 3
+@export var shot_cooldown := 0.2
+@export var burst_cooldown := 3
 
-# Called when the node enters the scene tree for the first time.
+var burst: int = burst_size
+
 func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	$ShotCooldown.wait_time = shot_cooldown
+	$BurstCooldown.wait_time = burst_cooldown
 
 func fire():
 	# prepare
@@ -27,6 +26,12 @@ func fire():
 	# flash
 	$Flash.visible = true
 	$Flash/FlashDuration.start()
+	
+	# handle burst
+	burst -= 1
+	if burst > 0:
+		# still shots left
+		$ShotCooldown.start()
 
 func _on_flash_duration_timeout():
 	$Flash.visible = false

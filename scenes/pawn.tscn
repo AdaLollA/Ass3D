@@ -68,5 +68,13 @@ transform = Transform3D(2, 0, 0, 0, 1.66667, 0, 0, 0, 2, 0.14548, 0, 0.763371)
 wait_time = 0.1
 one_shot = true
 
+[node name="ShotCooldown" type="Timer" parent="Weapon"]
+wait_time = 0.2
+one_shot = true
+
+[node name="BurstCooldown" type="Timer" parent="Weapon"]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="input_event" from="." to="." method="_on_pawn_input_event"]
 [connection signal="timeout" from="Weapon/Flash/FlashDuration" to="Weapon" method="_on_flash_duration_timeout"]
