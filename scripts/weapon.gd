@@ -8,6 +8,10 @@ const PROJECTILE = preload("res://scenes/projectile.tscn")
 @export var burst_cooldown := 3
 
 var burst: int = burst_size
+var target = null:
+	set(v):
+		target = v
+		fire()
 
 func _ready():
 	$ShotCooldown.wait_time = shot_cooldown
@@ -32,6 +36,16 @@ func fire():
 	if burst > 0:
 		# still shots left
 		$ShotCooldown.start()
+	elif burst == 0:
+		$BurstCooldown.start()
 
 func _on_flash_duration_timeout():
 	$Flash.visible = false
+
+func _on_shot_cooldown_timeout():
+	fire()
+
+func _on_burst_cooldown_timeout():
+	burst = burst_size
+	if target:
+		fire()
