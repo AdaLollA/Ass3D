@@ -11,4 +11,4 @@ func _on_projectile_body_entered(body):
 		queue_free()
 	elif 'Pawn' in body.name:
 		queue_free()
-		print('deal damage') # todo
+		body.take_damage(damage)

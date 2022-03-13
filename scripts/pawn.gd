@@ -16,6 +16,8 @@ const JUMP_FORCE = 4.5
 
 var selected = false
 
+var health := 10.0
+
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -73,3 +75,9 @@ func _on_sight_area_body_entered(body):
 	if body != self and body.faction != faction:
 		look_at(body.global_transform.origin, Vector3.UP)
 		$Weapon.target = body.global_transform.origin
+
+func take_damage(damage):
+	health -= damage
+	print(health)
+	if health <= 0:
+		queue_free()
