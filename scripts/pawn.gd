@@ -21,7 +21,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	update_faction()
-	$Weapon.target = Vector3(0,0,0)
 
 func _physics_process(delta):
 	if not Engine.is_editor_hint() and faction == 0:
@@ -75,3 +74,4 @@ func _on_sight_area_body_entered(body):
 	if body != self and body.faction != faction:
 		print(body)
 		look_at(body.global_transform.origin, Vector3.UP)
+		$Weapon.target = body.global_transform.origin

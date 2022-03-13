@@ -2,6 +2,7 @@ extends Node3D
 
 const PROJECTILE = preload("res://scenes/projectile.tscn")
 
+@export var damage := 1
 @export var muzzle_velocity := 10
 @export var burst_size := 3
 @export var shot_cooldown := 0.2
@@ -21,7 +22,9 @@ func fire():
 	# prepare
 	var projectile = PROJECTILE.instantiate()
 	projectile.position = $MuzzleExit.global_transform.origin
-	projectile.apply_central_impulse(Vector3(muzzle_velocity, 0, 0))
+	projectile.apply_central_impulse((target - global_transform.origin).normalized() * muzzle_velocity)
+	projectile.damage = damage
+	projectile.rotation = rotation
 	
 	# add node
 	var projectile_container = get_tree().root.get_child(0).get_node('Projectiles')
