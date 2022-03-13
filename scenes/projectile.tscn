@@ -16,6 +16,7 @@ collision_layer = 2
 collision_mask = 0
 input_ray_pickable = false
 mass = 0.01
+gravity_scale = 0.2
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( "1_ui557" )
