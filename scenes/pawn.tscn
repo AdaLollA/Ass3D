@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://26mp6t1su6u"]
+[gd_scene load_steps=12 format=3 uid="uid://26mp6t1su6u"]
 
 [ext_resource type="Script" path="res://scripts/pawn.gd" id="1_pdg6t"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="2_nncld"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wsqsw"]
 
@@ -42,6 +43,7 @@ shape = SubResource( "CapsuleShape3D_wsqsw" )
 mesh = SubResource( "CapsuleMesh_p5sr8" )
 
 [node name="BodyEnemy" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource( "CapsuleMesh_v5oyn" )
 
 [node name="Face" type="MeshInstance3D" parent="."]
@@ -50,9 +52,13 @@ mesh = SubResource( "BoxMesh_0jrqn" )
 
 [node name="Weapon" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34147, 0.322145, 0)
+script = ExtResource( "2_nncld" )
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Weapon"]
 transform = Transform3D(0.387, 0, 0, 0, 0.117, 0, 0, 0, 0.146, -0.287981, 0, 0.769637)
 mesh = SubResource( "BoxMesh_0kpc1" )
+
+[node name="MuzzleExit" type="Node3D" parent="Weapon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0404849, 0, 0.772731)
 
 [connection signal="input_event" from="." to="." method="_on_pawn_input_event"]

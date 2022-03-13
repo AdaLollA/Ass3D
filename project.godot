@@ -8,6 +8,16 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node3D",
+"class": &"Weapon",
+"language": &"GDScript",
+"path": "res://scripts/weapon.gd"
+}]
+_global_script_class_icons={
+"Weapon": ""
+}
+
 [application]
 
 config/name="Ass3D"

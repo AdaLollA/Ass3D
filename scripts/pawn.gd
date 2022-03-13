@@ -19,6 +19,9 @@ var selected = false
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _ready():
+	($Weapon as Weapon).fire()
+
 func _physics_process(delta):
 	if not Engine.is_editor_hint() and faction == 0:
 		# Add the gravity.
@@ -57,7 +60,6 @@ func handle_selection():
 
 func update_faction():
 	if $BodyPlayer and $BodyEnemy:
-		print('bodies available')
 		if faction == 0:
 			body = $BodyPlayer
 			body.visible = true
