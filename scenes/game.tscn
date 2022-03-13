@@ -57,7 +57,7 @@ shape = SubResource( "BoxShape3D_aotj3" )
 [node name="Pawn" parent="Entities" instance=ExtResource( "2_70565" )]
 transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -1.44746, 2.26178, -0.679368)
 
-[node name="Enemy" parent="Entities" instance=ExtResource( "2_70565" )]
+[node name="PawnEnemy" parent="Entities" instance=ExtResource( "2_70565" )]
 transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 5.07771, 3.16674, -3.63695)
 faction = 1
 

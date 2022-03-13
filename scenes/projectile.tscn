@@ -1,17 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh8de1l630ubs"]
+[gd_scene load_steps=10 format=3 uid="uid://bh8de1l630ubs"]
 
 [ext_resource type="Script" path="res://scripts/projectile.gd" id="1_ui557"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lusxu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rl1gf"]
 albedo_color = Color(0.392157, 0.341176, 0.152941, 1)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_a6jvk"]
-material = SubResource( "StandardMaterial3D_lusxu" )
+[sub_resource type="SphereMesh" id="SphereMesh_8svqx"]
+material = SubResource( "StandardMaterial3D_rl1gf" )
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_63r4a"]
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_om3c1"]
+transparency = 1
+albedo_color = Color(0.392157, 0.341176, 0.152941, 0.396078)
+
+[sub_resource type="Curve" id="Curve_75np5"]
+_data = [Vector2(0, 1), 0.0, -0.96, 0, 0, Vector2(0.528409, 0.554545), -0.779487, -0.779487, 0, 0, Vector2(1, 0.227273), -0.483721, 0.0, 0, 0]
+
+[sub_resource type="CurveTexture" id="CurveTexture_cmye7"]
+curve = SubResource( "Curve_75np5" )
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_1tpfn"]
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.05
+scale_curve = SubResource( "CurveTexture_cmye7" )
+
+[sub_resource type="SphereMesh" id="SphereMesh_tt3vc"]
 
 [node name="Projectile" type="RigidDynamicBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
 collision_layer = 2
 collision_mask = 0
 input_ray_pickable = false
@@ -21,17 +40,26 @@ contact_monitor = true
 script = ExtResource( "1_ui557" )
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, 0.129, 0, 0, 0, 0.02, 0, 0, 0)
-mesh = SubResource( "CapsuleMesh_a6jvk" )
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+visible = false
+mesh = SubResource( "SphereMesh_8svqx" )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, 0.2, 0, 0, 0, 0.02, 0, 0, 0)
 shape = SubResource( "BoxShape3D_63r4a" )
 
 [node name="MaxLifetime" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource( "StandardMaterial3D_om3c1" )
+lifetime = 2.0
+local_coords = false
+trail_enabled = true
+trail_length_secs = 1.84
+process_material = SubResource( "ParticlesMaterial_1tpfn" )
+draw_pass_1 = SubResource( "SphereMesh_tt3vc" )
 
 [connection signal="body_entered" from="." to="." method="_on_projectile_body_entered"]
 [connection signal="timeout" from="MaxLifetime" to="." method="_on_max_lifetime_timeout"]
