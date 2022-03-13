@@ -15,6 +15,11 @@ run/main_scene="res://scenes/game.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Mobile")
 
+[layer_names]
+
+3d_physics/layer_1="Pawns"
+3d_physics/layer_2="Projectiles"
+
 [rendering]
 
 vulkan/rendering/back_end=1

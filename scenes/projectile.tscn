@@ -12,6 +12,7 @@ material = SubResource( "StandardMaterial3D_lusxu" )
 
 [node name="Projectile" type="RigidDynamicBody3D"]
 transform = Transform3D(5.96046e-08, 1, 0, 0, 5.96046e-08, -1, -1, 0, 5.96046e-08, 0, 0, 0)
+collision_layer = 2
 input_ray_pickable = false
 mass = 0.01
 contacts_reported = 1
