@@ -21,14 +21,17 @@ func _ready():
 func fire():
 	# prepare
 	var projectile = PROJECTILE.instantiate()
-	#projectile.look_at(target)
 	projectile.position = $MuzzleExit.global_transform.origin
 	projectile.apply_central_impulse((target - global_transform.origin).normalized() * muzzle_velocity)
 	projectile.damage = damage
+	#projectile.rotation = get_parent().global_transform.basis.get_euler()
+	#projectile.transform.rotated(Vector3(1, 0, 0), PI)
+	#projectile.global_transform.basis = global_transform.basis
 	
 	# add node
 	var projectile_container = get_tree().root.get_child(0).get_node('Projectiles')
 	projectile_container.add_child(projectile)
+	projectile.look_at(target, Vector3.UP)
 	
 	# flash
 	$Flash.visible = true
