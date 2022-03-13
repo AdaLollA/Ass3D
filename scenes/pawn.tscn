@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://26mp6t1su6u"]
+[gd_scene load_steps=11 format=3 uid="uid://26mp6t1su6u"]
 
 [ext_resource type="Script" path="res://scripts/pawn.gd" id="1_pdg6t"]
-[ext_resource type="Script" path="res://scripts/weapon.gd" id="2_nncld"]
+[ext_resource type="PackedScene" uid="uid://cvyiqf8j7yfoq" path="res://scenes/weapon.tscn" id="2_e0uck"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wsqsw"]
 
@@ -25,14 +25,12 @@ albedo_color = Color(0.658824, 0.94902, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_0jrqn"]
 material = SubResource( "StandardMaterial3D_ucysh" )
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgwm8"]
-albedo_color = Color(0.227451, 0.227451, 0.227451, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0kpc1"]
-material = SubResource( "StandardMaterial3D_kgwm8" )
+[sub_resource type="BoxShape3D" id="BoxShape3D_0h3dq"]
+size = Vector3(50, 50, 50)
 
 [node name="Pawn" type="CharacterBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 0, 1.60568, 0)
+collision_mask = 7
 script = ExtResource( "1_pdg6t" )
 faction = 0
 
@@ -47,36 +45,17 @@ visible = false
 mesh = SubResource( "CapsuleMesh_v5oyn" )
 
 [node name="Face" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.239, 0, 0, 0, 0.19, 0, 0, 0, 0.533, 0.752425, 0.857915, -0.074904)
+transform = Transform3D(0.559, 0, 0, 0, 0.202, 0, 0, 0, 0.209, 0.00411361, 0.857915, -0.835162)
 mesh = SubResource( "BoxMesh_0jrqn" )
 
-[node name="Weapon" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34147, 0.322145, 0)
-script = ExtResource( "2_nncld" )
+[node name="Weapon" parent="." instance=ExtResource( "2_e0uck" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.883829, 0.151934, -0.666317)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Weapon"]
-transform = Transform3D(0.387, 0, 0, 0, 0.117, 0, 0, 0, 0.146, -0.287981, 0, 0.769637)
-mesh = SubResource( "BoxMesh_0kpc1" )
+[node name="SightArea" type="Area3D" parent="."]
+monitorable = false
 
-[node name="MuzzleExit" type="Node3D" parent="Weapon"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0404849, 0, 0.772731)
-
-[node name="Flash" type="OmniLight3D" parent="Weapon"]
-transform = Transform3D(2, 0, 0, 0, 1.66667, 0, 0, 0, 2, 0.14548, 0, 0.763371)
-visible = false
-omni_range = 2.0
-
-[node name="FlashDuration" type="Timer" parent="Weapon/Flash"]
-wait_time = 0.1
-one_shot = true
-
-[node name="ShotCooldown" type="Timer" parent="Weapon"]
-one_shot = true
-
-[node name="BurstCooldown" type="Timer" parent="Weapon"]
-one_shot = true
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SightArea"]
+shape = SubResource( "BoxShape3D_0h3dq" )
 
 [connection signal="input_event" from="." to="." method="_on_pawn_input_event"]
-[connection signal="timeout" from="Weapon/Flash/FlashDuration" to="Weapon" method="_on_flash_duration_timeout"]
-[connection signal="timeout" from="Weapon/ShotCooldown" to="Weapon" method="_on_shot_cooldown_timeout"]
-[connection signal="timeout" from="Weapon/BurstCooldown" to="Weapon" method="_on_burst_cooldown_timeout"]
+[connection signal="body_entered" from="SightArea" to="." method="_on_sight_area_body_entered"]

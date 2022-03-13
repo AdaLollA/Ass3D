@@ -69,3 +69,9 @@ func update_faction():
 			body = $BodyEnemy
 			body.visible = true
 			$BodyPlayer.visible = false
+
+func _on_sight_area_body_entered(body):
+	# todo body detected
+	if body != self and body.faction != faction:
+		print(body)
+		look_at(body.global_transform.origin, Vector3.UP)
