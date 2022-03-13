@@ -14,6 +14,7 @@ material = SubResource( "StandardMaterial3D_lusxu" )
 transform = Transform3D(5.96046e-08, 1, 0, 0, 5.96046e-08, -1, -1, 0, 5.96046e-08, 0, 0, 0)
 input_ray_pickable = false
 mass = 0.01
+contacts_reported = 1
 contact_monitor = true
 script = ExtResource( "1_ui557" )
 
