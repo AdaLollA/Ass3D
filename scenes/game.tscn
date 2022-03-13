@@ -60,57 +60,138 @@ transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -1.44746, 2.26178, -0.6
 [node name="Projectiles" type="Node3D" parent="."]
 
 [node name="UI" type="Control" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Resources" type="Control" parent="UI"]
+offset_left = 5.0
+offset_right = 75.0
+offset_bottom = 450.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Resources"]
+offset_right = 70.0
+offset_bottom = 450.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Resources/VBoxContainer"]
+offset_right = 70.0
+offset_bottom = 26.0
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/Resources/VBoxContainer/HBoxContainer"]
+offset_right = 10.0
+offset_bottom = 26.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Resources/VBoxContainer/HBoxContainer/CenterContainer"]
+offset_top = 8.0
+offset_right = 10.0
+offset_bottom = 18.0
+rect_min_size = Vector2(10, 10)
+
+[node name="Food" type="Label" parent="UI/Resources/VBoxContainer/HBoxContainer"]
+offset_left = 14.0
+offset_right = 53.0
+offset_bottom = 26.0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 16
+text = "Food
+"
+
+[node name="Pawns" type="CenterContainer" parent="UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -417.0
+offset_right = 417.0
+offset_bottom = 86.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pawns"]
+offset_left = 402.0
+offset_top = 28.0
+offset_right = 432.0
+offset_bottom = 58.0
+
+[node name="Label" type="Label" parent="UI/Pawns/VBoxContainer"]
+offset_right = 30.0
+offset_bottom = 26.0
+text = "Ada"
+
+[node name="ColorRect" type="ColorRect" parent="UI/Pawns/VBoxContainer"]
+offset_top = 30.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="Info" type="CenterContainer" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_bottom = 108.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Info"]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 99.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HideUI" type="Button" parent="UI/Info/VBoxContainer"]
 offset_right = 40.0
-offset_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Pawns" type="Control" parent="UI"]
-offset_right = 40.0
-offset_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Info" type="Control" parent="UI"]
-offset_left = 385.0
-offset_top = 221.0
-offset_right = 425.0
-offset_bottom = 261.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HideUI" type="Button" parent="UI/Info"]
-offset_right = 8.0
 offset_bottom = 31.0
 text = "^"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="Control" parent="UI"]
+[node name="Temperature" type="Label" parent="UI/Info/VBoxContainer"]
+offset_top = 35.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 61.0
+text = "16°C"
+
+[node name="Time" type="Label" parent="UI/Info/VBoxContainer"]
+offset_top = 65.0
+offset_right = 40.0
+offset_bottom = 91.0
+text = "13:37"
+
+[node name="Buttons" type="CenterContainer" parent="UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -47.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tasks" type="Button" parent="UI/Buttons"]
-offset_right = 8.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Buttons"]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 142.0
+offset_bottom = 39.0
+
+[node name="Tasks" type="Button" parent="UI/Buttons/HBoxContainer"]
+offset_right = 51.0
 offset_bottom = 31.0
+text = "Tasks"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Architect" type="Button" parent="UI/Buttons"]
-offset_right = 8.0
+[node name="Architect" type="Button" parent="UI/Buttons/HBoxContainer"]
+offset_left = 55.0
+offset_right = 132.0
 offset_bottom = 31.0
+text = "Architect"
