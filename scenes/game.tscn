@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://37i1bhwbcfc7"]
+[gd_scene load_steps=7 format=3 uid="uid://37i1bhwbcfc7"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_usvjx"]
 [ext_resource type="PackedScene" uid="uid://26mp6t1su6u" path="res://scenes/pawn.tscn" id="2_70565"]
+[ext_resource type="PackedScene" uid="uid://dmtymsue5qrjd" path="res://scenes/ui/resource.tscn" id="3_l3rmn"]
+[ext_resource type="PackedScene" uid="uid://ce7iyu4o0aper" path="res://scenes/ui/pawn.tscn" id="4_0thlo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x0vrs"]
 
@@ -81,28 +83,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Resources/VBoxContainer"]
-offset_right = 70.0
-offset_bottom = 26.0
+[node name="Resource" parent="UI/Resources/VBoxContainer" instance=ExtResource( "3_l3rmn" )]
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/Resources/VBoxContainer/HBoxContainer"]
-offset_right = 10.0
-offset_bottom = 26.0
+[node name="Resource2" parent="UI/Resources/VBoxContainer" instance=ExtResource( "3_l3rmn" )]
+offset_top = 30.0
+offset_bottom = 56.0
 
-[node name="ColorRect" type="ColorRect" parent="UI/Resources/VBoxContainer/HBoxContainer/CenterContainer"]
-offset_top = 8.0
-offset_right = 10.0
-offset_bottom = 18.0
-rect_min_size = Vector2(10, 10)
-
-[node name="Food" type="Label" parent="UI/Resources/VBoxContainer/HBoxContainer"]
-offset_left = 14.0
-offset_right = 53.0
-offset_bottom = 26.0
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 16
-text = "Food
-"
+[node name="Resource3" parent="UI/Resources/VBoxContainer" instance=ExtResource( "3_l3rmn" )]
+offset_top = 60.0
+offset_bottom = 86.0
 
 [node name="Pawns" type="CenterContainer" parent="UI"]
 anchor_left = 0.5
@@ -114,55 +103,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pawns"]
-offset_left = 402.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Pawns"]
+offset_left = 368.0
 offset_top = 28.0
-offset_right = 432.0
+offset_right = 466.0
 offset_bottom = 58.0
 
-[node name="Label" type="Label" parent="UI/Pawns/VBoxContainer"]
-offset_right = 30.0
-offset_bottom = 26.0
-text = "Ada"
+[node name="Pawn" parent="UI/Pawns/HBoxContainer" instance=ExtResource( "4_0thlo" )]
 
-[node name="ColorRect" type="ColorRect" parent="UI/Pawns/VBoxContainer"]
-offset_top = 30.0
-offset_right = 30.0
-offset_bottom = 30.0
+[node name="Pawn2" parent="UI/Pawns/HBoxContainer" instance=ExtResource( "4_0thlo" )]
+offset_left = 34.0
+offset_right = 64.0
+
+[node name="Pawn3" parent="UI/Pawns/HBoxContainer" instance=ExtResource( "4_0thlo" )]
+offset_left = 68.0
+offset_right = 98.0
 
 [node name="Info" type="CenterContainer" parent="UI"]
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -60.0
-offset_bottom = 108.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Info"]
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 50.0
-offset_bottom = 99.0
+offset_left = -55.0
+offset_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HideUI" type="Button" parent="UI/Info/VBoxContainer"]
-offset_right = 40.0
-offset_bottom = 31.0
-text = "^"
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Info"]
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 60.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Temperature" type="Label" parent="UI/Info/VBoxContainer"]
-offset_top = 35.0
 offset_right = 40.0
-offset_bottom = 61.0
+offset_bottom = 26.0
 text = "16°C"
 
 [node name="Time" type="Label" parent="UI/Info/VBoxContainer"]
-offset_top = 65.0
+offset_top = 30.0
 offset_right = 40.0
-offset_bottom = 91.0
+offset_bottom = 56.0
 text = "13:37"
 
 [node name="Buttons" type="CenterContainer" parent="UI"]
@@ -170,16 +153,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -153.0
+offset_left = -180.0
 offset_top = -47.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Buttons"]
-offset_left = 10.0
+offset_left = 6.0
 offset_top = 8.0
-offset_right = 142.0
+offset_right = 173.0
 offset_bottom = 39.0
 
 [node name="Tasks" type="Button" parent="UI/Buttons/HBoxContainer"]
@@ -195,3 +178,13 @@ offset_left = 55.0
 offset_right = 132.0
 offset_bottom = 31.0
 text = "Architect"
+
+[node name="HideUI" type="Button" parent="UI/Buttons/HBoxContainer"]
+offset_left = 136.0
+offset_right = 167.0
+offset_bottom = 31.0
+rect_min_size = Vector2(31, 0)
+text = "v"
+__meta__ = {
+"_edit_use_anchors_": false
+}

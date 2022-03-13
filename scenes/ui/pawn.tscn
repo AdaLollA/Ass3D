@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://ce7iyu4o0aper"]
+
+[node name="Pawn" type="VBoxContainer"]
+offset_right = 30.0
+offset_bottom = 30.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bars" type="Control" parent="."]
+offset_right = 30.0
+
+[node name="BackgroundMood" type="ColorRect" parent="Bars"]
+offset_top = -25.0
+offset_right = 30.0
+offset_bottom = 5.0
+color = Color(0.211765, 0.254902, 0.282353, 1)
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mood" type="ColorRect" parent="Bars"]
+offset_top = -7.0
+offset_right = 30.0
+offset_bottom = 5.0
+color = Color(0.364706, 0.439216, 0.490196, 1)
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundHealth" type="ColorRect" parent="Bars"]
+offset_top = 10.143
+offset_right = 30.0
+offset_bottom = 22.143
+color = Color(0.537255, 0.537255, 0.537255, 0.501961)
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="ColorRect" parent="Bars"]
+offset_top = 10.0
+offset_right = 19.0
+offset_bottom = 22.0
+color = Color(0.654902, 0.129412, 0.152941, 0.501961)
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+offset_top = 4.0
+offset_right = 30.0
+offset_bottom = 30.0
+text = "Ada"
