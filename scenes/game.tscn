@@ -10,12 +10,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wsqsw"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_balob"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n30fp"]
 albedo_color = Color(0.74902, 0.917647, 1, 1)
 emission = Color(0, 0.615686, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v6d1o"]
-material = SubResource( "StandardMaterial3D_balob" )
+material = SubResource( "StandardMaterial3D_n30fp" )
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucysh"]
 albedo_color = Color(0.658824, 0.94902, 1, 1)
@@ -71,16 +71,15 @@ shape = SubResource( "BoxShape3D_aotj3" )
 [node name="Entities" type="Node3D" parent="."]
 
 [node name="Pawn" parent="Entities" instance=ExtResource( "2_70565" )]
-transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 0, 2.26178, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -1.44746, 2.26178, -0.679368)
 
 [node name="Enemy" parent="Entities" instance=ExtResource( "2_70565" )]
 transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 5.07771, 3.16674, -3.63695)
-faction = 1
 
 [node name="Enemy2" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -4.88047, 2.52192, -3.53371)
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -7.19713, 1.72972, -6.24232)
 script = ExtResource( "3_oibxb" )
-faction = 1
+faction = 0
 
 [node name="Collision" type="CollisionShape3D" parent="Entities/Enemy2"]
 shape = SubResource( "CapsuleShape3D_wsqsw" )
