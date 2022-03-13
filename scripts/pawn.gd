@@ -1,17 +1,15 @@
 @tool
 extends CharacterBody3D
 
-const COLOR_FRIENDY = Color('bfeaff')
-const COLOR_ENEMY = Color('ff9999')
-
 # 0  player faction
 # >0 enemies
 # <0 allies
 @export var faction: int:
 	set(v):
 		faction = v
-		# update color to represent faction
-		update_color()
+		# update mesh to represent faction
+		update_faction()
+var body
 
 const SPEED = 5.0
 const JUMP_FORCE = 4.5
@@ -52,15 +50,19 @@ func _on_pawn_input_event(camera, event, position, normal, shape_idx):
 
 func handle_selection():
 	selected = !selected
-	var emission = $Body.mesh.surface_get_material(0).emission_enabled
 	if selected:
-		$Body.mesh.surface_get_material(0).emission_enabled = true
+		body.mesh.surface_get_material(0).emission_enabled = true
 	else:
-		$Body.mesh.surface_get_material(0).emission_enabled = false
+		body.mesh.surface_get_material(0).emission_enabled = false
 
-func update_color():
-	if $Body:
+func update_faction():
+	if $BodyPlayer and $BodyEnemy:
+		print('bodies available')
 		if faction == 0:
-			$Body.mesh.surface_get_material(0).albedo_color = COLOR_FRIENDY
+			body = $BodyPlayer
+			body.visible = true
+			$BodyEnemy.visible = false
 		elif faction > 0:
-			$Body.mesh.surface_get_material(0).albedo_color = COLOR_ENEMY
+			body = $BodyEnemy
+			body.visible = true
+			$BodyPlayer.visible = false

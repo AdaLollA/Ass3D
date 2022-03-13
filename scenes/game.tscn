@@ -1,33 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://37i1bhwbcfc7"]
+[gd_scene load_steps=5 format=3 uid="uid://37i1bhwbcfc7"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_usvjx"]
 [ext_resource type="PackedScene" uid="uid://26mp6t1su6u" path="res://scenes/pawn.tscn" id="2_70565"]
-[ext_resource type="Script" path="res://scripts/pawn.gd" id="3_oibxb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x0vrs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aotj3"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wsqsw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n30fp"]
-albedo_color = Color(0.74902, 0.917647, 1, 1)
-emission = Color(0, 0.615686, 0, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_v6d1o"]
-material = SubResource( "StandardMaterial3D_n30fp" )
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucysh"]
-albedo_color = Color(0.658824, 0.94902, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0jrqn"]
-material = SubResource( "StandardMaterial3D_ucysh" )
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgwm8"]
-albedo_color = Color(0.227451, 0.227451, 0.227451, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0kpc1"]
-material = SubResource( "StandardMaterial3D_kgwm8" )
 
 [node name="Game" type="Node3D"]
 
@@ -75,27 +53,3 @@ transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -1.44746, 2.26178, -0.6
 
 [node name="Enemy" parent="Entities" instance=ExtResource( "2_70565" )]
 transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 5.07771, 3.16674, -3.63695)
-
-[node name="Enemy2" type="CharacterBody3D" parent="Entities"]
-transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -7.19713, 1.72972, -6.24232)
-script = ExtResource( "3_oibxb" )
-faction = 0
-
-[node name="Collision" type="CollisionShape3D" parent="Entities/Enemy2"]
-shape = SubResource( "CapsuleShape3D_wsqsw" )
-
-[node name="Body" type="MeshInstance3D" parent="Entities/Enemy2"]
-mesh = SubResource( "CapsuleMesh_v6d1o" )
-
-[node name="Face" type="MeshInstance3D" parent="Entities/Enemy2"]
-transform = Transform3D(0.239, 0, 0, 0, 0.19, 0, 0, 0, 0.533, 0.752425, 0.857915, -0.074904)
-mesh = SubResource( "BoxMesh_0jrqn" )
-
-[node name="Weapon" type="Node3D" parent="Entities/Enemy2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34147, 0.322145, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Enemy2/Weapon"]
-transform = Transform3D(0.387, 0, 0, 0, 0.117, 0, 0, 0, 0.146, -0.287981, 0, 0.769637)
-mesh = SubResource( "BoxMesh_0kpc1" )
-
-[connection signal="input_event" from="Entities/Enemy2" to="Entities/Enemy2" method="_on_pawn_input_event"]
