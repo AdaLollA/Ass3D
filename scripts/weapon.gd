@@ -21,10 +21,10 @@ func _ready():
 func fire():
 	# prepare
 	var projectile = PROJECTILE.instantiate()
+	#projectile.look_at(target)
 	projectile.position = $MuzzleExit.global_transform.origin
 	projectile.apply_central_impulse((target - global_transform.origin).normalized() * muzzle_velocity)
 	projectile.damage = damage
-	projectile.rotation = rotation
 	
 	# add node
 	var projectile_container = get_tree().root.get_child(0).get_node('Projectiles')
