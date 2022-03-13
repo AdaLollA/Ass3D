@@ -36,7 +36,7 @@ func fire():
 	if burst > 0:
 		# still shots left
 		$ShotCooldown.start()
-	elif burst == 0:
+	else:
 		$BurstCooldown.start()
 
 func _on_flash_duration_timeout():
@@ -47,5 +47,5 @@ func _on_shot_cooldown_timeout():
 
 func _on_burst_cooldown_timeout():
 	burst = burst_size
-	if target:
+	if target != null:
 		fire()
