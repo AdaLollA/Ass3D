@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://37i1bhwbcfc7"]
+[gd_scene load_steps=8 format=3 uid="uid://37i1bhwbcfc7"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_usvjx"]
 [ext_resource type="PackedScene" uid="uid://26mp6t1su6u" path="res://scenes/pawn.tscn" id="2_70565"]
+[ext_resource type="Material" uid="uid://y3ok6bhevhsw" path="res://assets/default.material" id="2_nsxn0"]
 [ext_resource type="PackedScene" uid="uid://dmtymsue5qrjd" path="res://scenes/ui/resource.tscn" id="3_l3rmn"]
 [ext_resource type="PackedScene" uid="uid://ce7iyu4o0aper" path="res://scenes/ui/pawn.tscn" id="4_0thlo"]
 
@@ -28,6 +29,7 @@ collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Box2"]
 mesh = SubResource( "BoxMesh_x0vrs" )
+surface_material_override/0 = ExtResource( "2_nsxn0" )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Box2"]
 shape = SubResource( "BoxShape3D_aotj3" )
@@ -39,6 +41,7 @@ collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Box3"]
 mesh = SubResource( "BoxMesh_x0vrs" )
+surface_material_override/0 = ExtResource( "2_nsxn0" )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Box3"]
 shape = SubResource( "BoxShape3D_aotj3" )
@@ -50,6 +53,7 @@ collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Ground"]
 mesh = SubResource( "BoxMesh_x0vrs" )
+surface_material_override/0 = ExtResource( "2_nsxn0" )
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Ground"]
 shape = SubResource( "BoxShape3D_aotj3" )
