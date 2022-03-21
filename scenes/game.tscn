@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://37i1bhwbcfc7"]
+[gd_scene load_steps=10 format=3 uid="uid://37i1bhwbcfc7"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_usvjx"]
 [ext_resource type="PackedScene" uid="uid://26mp6t1su6u" path="res://scenes/pawn.tscn" id="2_70565"]
 [ext_resource type="Material" uid="uid://y3ok6bhevhsw" path="res://assets/default.material" id="2_nsxn0"]
 [ext_resource type="PackedScene" uid="uid://dmtymsue5qrjd" path="res://scenes/ui/resource.tscn" id="3_l3rmn"]
 [ext_resource type="PackedScene" uid="uid://ce7iyu4o0aper" path="res://scenes/ui/pawn.tscn" id="4_0thlo"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="4_16n4j"]
 [ext_resource type="PackedScene" uid="uid://dhv4nuj63wctt" path="res://scenes/ui/workbar.tscn" id="6_uyr65"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x0vrs"]
@@ -71,6 +72,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.5, -1.44746, 2.26178, -0.6
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( "4_16n4j" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,46 +157,46 @@ offset_right = 40.0
 offset_bottom = 56.0
 text = "13:37"
 
-[node name="Buttons" type="CenterContainer" parent="UI"]
+[node name="Buttons" type="HBoxContainer" parent="UI"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -180.0
-offset_top = -47.0
+offset_left = -173.0
+offset_top = -37.0
+offset_right = -8.0
+offset_bottom = -6.0
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Buttons"]
-offset_left = 6.0
-offset_top = 8.0
-offset_right = 173.0
-offset_bottom = 39.0
-
-[node name="Work" type="Button" parent="UI/Buttons/HBoxContainer"]
-offset_right = 51.0
+[node name="Work" type="Button" parent="UI/Buttons"]
+offset_right = 49.0
 offset_bottom = 31.0
 focus_mode = 0
+toggle_mode = true
 text = "Work
 "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Architect" type="Button" parent="UI/Buttons/HBoxContainer"]
-offset_left = 55.0
-offset_right = 132.0
+[node name="Architect" type="Button" parent="UI/Buttons"]
+offset_left = 53.0
+offset_right = 130.0
 offset_bottom = 31.0
 focus_mode = 0
+toggle_mode = true
 text = "Architect"
 
-[node name="HideUI" type="Button" parent="UI/Buttons/HBoxContainer"]
-offset_left = 136.0
-offset_right = 167.0
+[node name="HideUI" type="Button" parent="UI/Buttons"]
+offset_left = 134.0
+offset_right = 165.0
 offset_bottom = 31.0
 rect_min_size = Vector2(31, 0)
 focus_mode = 0
+toggle_mode = true
 text = "v"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -215,6 +217,7 @@ __meta__ = {
 }
 
 [node name="Work" type="Panel" parent="UI/Windows"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -354,3 +357,44 @@ __meta__ = {
 }
 
 [node name="WorkBar" parent="UI/Windows/Work/VBoxContainer" instance=ExtResource( "6_uyr65" )]
+
+[node name="Architect" type="Panel" parent="UI/Windows"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -319.0
+offset_top = -95.0
+offset_right = 319.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Architect"]
+offset_right = 638.0
+offset_bottom = 232.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Space" type="Control" parent="UI/Windows/Architect/VBoxContainer"]
+offset_right = 638.0
+offset_bottom = 5.0
+rect_min_size = Vector2(0, 5)
+
+[node name="WorkTitles" type="HBoxContainer" parent="UI/Windows/Architect/VBoxContainer"]
+offset_top = 9.0
+offset_right = 638.0
+offset_bottom = 35.0
+
+[node name="Label" type="Label" parent="UI/Windows/Architect/VBoxContainer/WorkTitles"]
+offset_right = 100.0
+offset_bottom = 26.0
+rect_min_size = Vector2(100, 0)
+text = "Architect"
+horizontal_alignment = 1
+
+[connection signal="toggled" from="UI/Buttons/Work" to="UI" method="_on_work_toggled"]
+[connection signal="toggled" from="UI/Buttons/Architect" to="UI" method="_on_architect_toggled"]
+[connection signal="toggled" from="UI/Buttons/HideUI" to="UI" method="_on_hide_ui_toggled"]
