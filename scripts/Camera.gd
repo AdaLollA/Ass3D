@@ -1,6 +1,6 @@
 extends Camera3D
 
-const DRAG_SPEED = 0.01
+@export var DRAG_SPEED = 0.01
 
 var dragging = false
 var previous_drag = null

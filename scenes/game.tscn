@@ -16,6 +16,7 @@
 transform = Transform3D(1, 0, 0, 0, 0.435812, 0.900038, 0, -0.900038, 0.435812, 0, 9.62194, 6.44788)
 current = true
 script = ExtResource( "1_usvjx" )
+DRAG_SPEED = 0.02
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.867025, 0.309648, 0.390366, -0.410544, -1.22352e-08, 0.911841, 0.282349, -0.950851, 0.127124, 0, 10.3611, 0)
