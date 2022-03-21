@@ -440,27 +440,27 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Windows/Pawn/VBoxContainer"]
 offset_top = 54.0
 offset_right = 800.0
-offset_bottom = 375.0
+offset_bottom = 409.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Space" type="Control" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer"]
 offset_right = 15.0
-offset_bottom = 321.0
+offset_bottom = 355.0
 rect_min_size = Vector2(15, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer"]
+[node name="StatusAndLog" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer"]
 offset_left = 19.0
 offset_right = 229.0
-offset_bottom = 321.0
+offset_bottom = 355.0
 
-[node name="Status" type="Panel" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Status" type="Panel" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog"]
 offset_right = 210.0
 offset_bottom = 158.0
 rect_min_size = Vector2(210, 158)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -473,13 +473,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Name" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer"]
+[node name="Name" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer"]
 offset_right = 185.0
 offset_bottom = 26.0
 text = "Ada"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer"]
 offset_top = 30.0
 offset_right = 185.0
 offset_bottom = 134.0
@@ -487,7 +487,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Image" type="ColorRect" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer/HBoxContainer"]
+[node name="Image" type="ColorRect" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer/HBoxContainer"]
 offset_right = 75.0
 offset_bottom = 104.0
 rect_min_size = Vector2(75, 75)
@@ -495,23 +495,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Space" type="Control" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer/HBoxContainer"]
+[node name="Space" type="Control" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer/HBoxContainer"]
 offset_left = 79.0
 offset_right = 81.0
 offset_bottom = 104.0
 rect_min_size = Vector2(2, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer/HBoxContainer"]
 offset_left = 85.0
 offset_right = 185.0
 offset_bottom = 104.0
 
-[node name="Health" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Health" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer/HBoxContainer/VBoxContainer"]
 offset_right = 100.0
 offset_bottom = 26.0
 text = "Health"
 
-[node name="HealthBar" type="ColorRect" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HealthBar" type="ColorRect" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer/HBoxContainer/VBoxContainer"]
 offset_top = 30.0
 offset_right = 100.0
 offset_bottom = 50.0
@@ -521,7 +521,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Mood" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Mood" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer/HBoxContainer/VBoxContainer"]
 offset_top = 54.0
 offset_right = 100.0
 offset_bottom = 80.0
@@ -530,7 +530,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MoodBar" type="ColorRect" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Status/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="MoodBar" type="ColorRect" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Status/VBoxContainer/HBoxContainer/VBoxContainer"]
 offset_top = 84.0
 offset_right = 100.0
 offset_bottom = 104.0
@@ -540,7 +540,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Space" type="Control" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Space" type="Control" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog"]
 offset_top = 162.0
 offset_right = 210.0
 offset_bottom = 167.0
@@ -549,35 +549,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Log" type="Panel" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Log" type="Panel" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog"]
 offset_top = 171.0
 offset_right = 210.0
-offset_bottom = 321.0
-rect_min_size = Vector2(200, 150)
+offset_bottom = 355.0
+rect_min_size = Vector2(200, 184)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log"]
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -98.0
+offset_top = 4.0
 offset_right = 98.0
-offset_bottom = 145.0
+offset_bottom = 179.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer"]
 offset_right = 184.0
 offset_bottom = 224.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_right = 184.0
 offset_bottom = 26.0
 text = "Ada has been hit by Ade"
 
-[node name="HSeparator" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 30.0
 offset_right = 184.0
 offset_bottom = 34.0
@@ -585,13 +586,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 38.0
 offset_right = 184.0
 offset_bottom = 64.0
 text = "Ada shot at Ade"
 
-[node name="HSeparator2" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 68.0
 offset_right = 184.0
 offset_bottom = 72.0
@@ -599,13 +600,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 76.0
 offset_right = 184.0
 offset_bottom = 102.0
 text = "Ada lost their leg"
 
-[node name="HSeparator3" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 106.0
 offset_right = 184.0
 offset_bottom = 110.0
@@ -613,13 +614,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label4" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 114.0
 offset_right = 184.0
 offset_bottom = 140.0
 text = "Ada lost their leg"
 
-[node name="HSeparator4" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 144.0
 offset_right = 184.0
 offset_bottom = 148.0
@@ -627,7 +628,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label5" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="Label5" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 152.0
 offset_right = 184.0
 offset_bottom = 178.0
@@ -636,7 +637,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSeparator5" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="HSeparator5" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 182.0
 offset_right = 184.0
 offset_bottom = 186.0
@@ -644,7 +645,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label6" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="Label6" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 190.0
 offset_right = 184.0
 offset_bottom = 216.0
@@ -653,13 +654,77 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSeparator6" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/VBoxContainer/Log/ScrollContainer/VBoxContainer"]
+[node name="HSeparator6" type="HSeparator" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/StatusAndLog/Log/ScrollContainer/VBoxContainer"]
 offset_top = 220.0
 offset_right = 184.0
 offset_bottom = 224.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Space2" type="Control" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer"]
+offset_left = 233.0
+offset_right = 238.0
+offset_bottom = 355.0
+rect_min_size = Vector2(5, 0)
+
+[node name="Moodlets" type="Panel" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer"]
+offset_left = 242.0
+offset_right = 442.0
+offset_bottom = 355.0
+rect_min_size = Vector2(200, 355)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/Moodlets"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -176.5
+offset_right = 98.0
+offset_bottom = 176.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Moodlet" type="HBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/Moodlets/VBoxContainer"]
+offset_right = 196.0
+offset_bottom = 26.0
+
+[node name="Name" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/Moodlets/VBoxContainer/Moodlet"]
+offset_right = 140.0
+offset_bottom = 26.0
+rect_min_size = Vector2(140, 0)
+text = "Low Expectations"
+
+[node name="Value" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/Moodlets/VBoxContainer/Moodlet"]
+offset_left = 144.0
+offset_right = 194.0
+offset_bottom = 26.0
+rect_min_size = Vector2(50, 0)
+theme_override_colors/font_color = Color(0, 0.65098, 0, 1)
+text = "+20"
+horizontal_alignment = 1
+
+[node name="Moodlet2" type="HBoxContainer" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/Moodlets/VBoxContainer"]
+offset_top = 30.0
+offset_right = 196.0
+offset_bottom = 56.0
+
+[node name="Name" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/Moodlets/VBoxContainer/Moodlet2"]
+offset_right = 140.0
+offset_bottom = 26.0
+rect_min_size = Vector2(140, 0)
+text = "In Pain"
+
+[node name="Value" type="Label" parent="UI/Windows/Pawn/VBoxContainer/HBoxContainer/Moodlets/VBoxContainer/Moodlet2"]
+offset_left = 144.0
+offset_right = 194.0
+offset_bottom = 26.0
+rect_min_size = Vector2(50, 0)
+theme_override_colors/font_color = Color(0.65098, 0.133333, 0.156863, 1)
+text = "-3"
+horizontal_alignment = 1
 
 [connection signal="toggled" from="UI/Buttons/Work" to="UI" method="_on_work_toggled"]
 [connection signal="toggled" from="UI/Buttons/Architect" to="UI" method="_on_architect_toggled"]
