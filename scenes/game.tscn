@@ -383,6 +383,7 @@ rect_min_size = Vector2(70, 0)
 offset_left = 23.0
 offset_right = 47.0
 offset_bottom = 31.0
+focus_mode = 0
 button_pressed = true
 
 [node name="VSeparator2" type="VSeparator" parent="UI/Windows/Work/VBoxContainer/WorkBar"]
@@ -403,6 +404,7 @@ rect_min_size = Vector2(70, 0)
 offset_left = 23.0
 offset_right = 47.0
 offset_bottom = 31.0
+focus_mode = 0
 button_pressed = true
 
 [node name="VSeparator3" type="VSeparator" parent="UI/Windows/Work/VBoxContainer/WorkBar"]
@@ -423,6 +425,7 @@ rect_min_size = Vector2(70, 0)
 offset_left = 23.0
 offset_right = 47.0
 offset_bottom = 31.0
+focus_mode = 0
 button_pressed = true
 
 [node name="VSeparator4" type="VSeparator" parent="UI/Windows/Work/VBoxContainer/WorkBar"]
@@ -443,6 +446,7 @@ rect_min_size = Vector2(70, 0)
 offset_left = 23.0
 offset_right = 47.0
 offset_bottom = 31.0
+focus_mode = 0
 button_pressed = true
 
 [node name="VSeparator5" type="VSeparator" parent="UI/Windows/Work/VBoxContainer/WorkBar"]
@@ -463,6 +467,7 @@ rect_min_size = Vector2(70, 0)
 offset_left = 23.0
 offset_right = 47.0
 offset_bottom = 31.0
+focus_mode = 0
 button_pressed = true
 
 [node name="VSeparator6" type="VSeparator" parent="UI/Windows/Work/VBoxContainer/WorkBar"]
@@ -483,6 +488,7 @@ rect_min_size = Vector2(70, 0)
 offset_left = 23.0
 offset_right = 47.0
 offset_bottom = 31.0
+focus_mode = 0
 button_pressed = true
 
 [node name="VSeparator7" type="VSeparator" parent="UI/Windows/Work/VBoxContainer/WorkBar"]
