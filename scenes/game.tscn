@@ -359,7 +359,6 @@ __meta__ = {
 [node name="WorkBar" parent="UI/Windows/Work/VBoxContainer" instance=ExtResource( "6_uyr65" )]
 
 [node name="Architect" type="Panel" parent="UI/Windows"]
-visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -378,22 +377,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Space" type="Control" parent="UI/Windows/Architect/VBoxContainer"]
+[node name="TabBar" type="TabBar" parent="UI/Windows/Architect/VBoxContainer"]
 offset_right = 638.0
-offset_bottom = 5.0
-rect_min_size = Vector2(0, 5)
+offset_bottom = 31.0
+tab_count = 4
+tab_0/title = "Structure"
+tab_1/title = "Defense"
+tab_2/title = "Production"
+tab_3/title = "Recreation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="WorkTitles" type="HBoxContainer" parent="UI/Windows/Architect/VBoxContainer"]
-offset_top = 9.0
-offset_right = 638.0
-offset_bottom = 35.0
-
-[node name="Label" type="Label" parent="UI/Windows/Architect/VBoxContainer/WorkTitles"]
-offset_right = 100.0
-offset_bottom = 26.0
-rect_min_size = Vector2(100, 0)
-text = "Architect"
-horizontal_alignment = 1
+[node name="Pawn" type="Panel" parent="UI/Windows"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -214.0
+offset_right = 400.0
+offset_bottom = 214.0
 
 [connection signal="toggled" from="UI/Buttons/Work" to="UI" method="_on_work_toggled"]
 [connection signal="toggled" from="UI/Buttons/Architect" to="UI" method="_on_architect_toggled"]
